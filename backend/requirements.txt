@@ -1,0 +1,6 @@
+pydantic~=1.10.9
+fastapi~=0.97.0
+uvicorn==0.22.0
+motor==3.1.2
+pymongo~=4.3.3
+python-dotenv~=1.0.0
