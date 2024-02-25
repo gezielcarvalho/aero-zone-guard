@@ -13,7 +13,7 @@ The Aero Zone Guard is a software solution designed to automate the analysis and
 
 - **Backend:** Python with FastAPI framework
 - **Frontend:** Angular with Tailwind CSS
-- **Database:** PostgreSQL
+- **Database:** PostgreSQL, MongoDB
 - **Geospatial Analysis:**
 - **Document Management:**
 
