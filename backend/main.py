@@ -1,7 +1,6 @@
-from typing import Optional, List
-from fastapi import FastAPI, Path, Query, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI
 from starlette.responses import RedirectResponse
+import api.users
 
 app = FastAPI(
     title="Aero-Zone Guard",
@@ -14,35 +13,10 @@ app = FastAPI(
     }
 )
 
-users = []
-
-
-class User(BaseModel):
-    email: str
-    is_active: bool
-    bio: Optional[str]
-
 
 @app.get("/", include_in_schema=False)
 def read_root():
     return RedirectResponse(url='/docs')
 
 
-@app.get("/users", response_model=List[User])
-async def get_users():
-    return users
-
-
-@app.post("/users")
-async def create_user(user: User):
-    users.append(user)
-    return "Success!!"
-
-
-@app.get("/users/{user_id}")
-async def read_user(
-        user_id: int = Path(..., description="The ID of the user you want to read"),
-        is_active: bool = Query(None)):
-    if users[user_id].is_active != is_active:
-        raise HTTPException(status_code=403, detail="User is "+("", " not ")[is_active]+" active")
-    return {"user": users[user_id], "is_active": is_active}
+app.include_router(router=api.users.router)

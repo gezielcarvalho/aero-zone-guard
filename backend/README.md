@@ -5,6 +5,7 @@ https://github.com/faraday-academy
 https://fastapi.tiangolo.com/
 https://python-poetry.org/
 poetry add [lib name]
+https://www.toptal.com/developers/gitignore
 
 
 https://www.youtube.com/watch?v=gQTRsZpR7Gw
