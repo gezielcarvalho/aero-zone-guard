@@ -20,7 +20,7 @@ class User(TimestampMixin, Base):
     username = Column(String(100), unique=True, index=True, nullable=False)
     email = Column(String(100), unique=True, index=True, nullable=False)
     role = Column(Enum(Role))
-
+    is_active = Column(Boolean, default=True)
     profile = relationship("Profile", back_populates="owner", uselist=False)
 
 
@@ -32,6 +32,5 @@ class Profile(TimestampMixin, Base):
     last_name = Column(String(100), nullable=False)
     bio = Column(Text, nullable=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    is_active = Column(Boolean, default=True)
 
     owner = relationship('User', back_populates='profiles', uselist=False)
