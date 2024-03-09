@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
-import api.users
+from api import users
+from db.db_setup import engine
+from db.models import user
+
+user.Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="Aero-Zone Guard",
@@ -19,4 +24,4 @@ def read_root():
     return RedirectResponse(url='/docs')
 
 
-app.include_router(router=api.users.router)
+app.include_router(router=users.router)
