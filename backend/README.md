@@ -15,4 +15,5 @@ https://www.techempower.com/benchmarks/#hw=ph&test=fortune&section=data-r22
 
 
 alembic upgrade head
+alembic downgrade base
 alembic revision --autogenerate -m "Moving is_active to user table"
