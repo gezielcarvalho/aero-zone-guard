@@ -22,5 +22,8 @@ async def add_user(user: UserCreate, db: Session = Depends(get_db)):
 
 @router.get("/users/{user_id}", response_model=User)
 async def read_user(user_id: int, db: Session = Depends(get_db)):
+    user = get_user(db, user_id=user_id)
+    if user is None:
+        raise HTTPException(404, detail="User not found")
     return get_user(db=db, user_id=user_id)
 
