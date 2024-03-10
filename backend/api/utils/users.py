@@ -28,3 +28,16 @@ def create_user(db: Session, user: UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def delete_user(db: Session, user_id: int):
+    user = db.query(User).filter(User.id == user_id).first()
+    db.delete(user)
+    db.commit()
+
+
+def edit_user(db: Session, user_id: int, user_data: list):
+    user = db.query(User).filter(User.id == user_id).first()
+    print(user_data['email'])
+    # db.refresh(user)
+    return user
