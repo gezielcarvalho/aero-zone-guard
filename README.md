@@ -11,7 +11,7 @@ The Aero Zone Guard is a software solution designed to automate the analysis and
 
 ## Technologies Used
 
-- **Backend:** Python with FastAPI framework
+- **Backend:** NestJS with TypeScript
 - **Frontend:** Angular with Tailwind CSS
 - **Database:** PostgreSQL, MongoDB
 - **Geospatial Analysis:**
@@ -19,13 +19,13 @@ The Aero Zone Guard is a software solution designed to automate the analysis and
 
 ## Installation and Setup
 
-1. Clone the repository: `git clone https://github.com/your-username/airspace-construction-assessment.git`
+1. Clone the repository: `git clone https://github.com/gezielcarvalho/aero-zone-guard.git`
 2. Set up the backend:
    - Navigate to the `/backend` directory.
-   - Install dependencies: `pip install -r requirements.txt`
-   - Set up environment variables and configure database connection in `settings.py`.
-   - Run migrations: `python manage.py migrate`
-   - Start the backend server: `python manage.py runserver`
+   - Install dependencies: `npm install`
+   - Set up environment variables and configure database connection in `.env`.
+   - Run migrations: `npm run migrate`
+   - Start the backend server: `npm run start`
 3. Set up the frontend:
    - Navigate to the `/frontend` directory.
    - No additional setup required for frontend as it's built with standard web technologies.
