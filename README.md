@@ -1,6 +1,6 @@
 # Aero Zone Guard - Airspace Construction Assessment System
 
-The Aero Zone Guard is a software solution designed to automate the analysis and assessment of construction projects in relation to their potential impact on aviation safety and airspace management. Whether it's a new building, antenna, or airport, the system evaluates potential threats and interference with existing aviation infrastructure before authorizing construction. Developed to streamline the reception, analysis, and decision-making process, this software facilitates the flow of electronic documentation through various sectors of the aeronautical authority, ultimately leading to the issuance or denial of clearance for the proposed project.
+The **Aero Zone Guard** is a software solution designed to automate the analysis and assessment of construction projects in relation to their potential impact on aviation safety and airspace management. Whether it's a new building, antenna, or airport, the system evaluates potential threats and interference with existing aviation infrastructure before authorizing construction. Developed to streamline the reception, analysis, and decision-making process, this software facilitates the flow of electronic documentation through various sectors of the aeronautical authority, ultimately leading to the issuance or denial of clearance for the proposed project.
 
 ## Key Features
 
@@ -11,36 +11,66 @@ The Aero Zone Guard is a software solution designed to automate the analysis and
 
 ## Technologies Used
 
-- **Backend:** NestJS with TypeScript
+- **Backend:** C#/ASP.NET Core
 - **Frontend:** Angular with Tailwind CSS
 - **Database:** PostgreSQL, MongoDB
-- **Geospatial Analysis:**
-- **Document Management:**
+- **Geospatial Analysis:** [Insert relevant tools/libraries if any]
+- **Document Management:** [Insert relevant tools/libraries if any]
 
 ## Installation and Setup
 
-1. Clone the repository: `git clone https://github.com/gezielcarvalho/aero-zone-guard.git`
-2. Set up the backend:
-   - Navigate to the `/backend` directory.
-   - Install dependencies: `npm install`
-   - Set up environment variables and configure database connection in `.env`.
-   - Run migrations: `npm run migrate`
-   - Start the backend server: `npm run start`
-3. Set up the frontend:
-   - Navigate to the `/frontend` directory.
-   - No additional setup required for frontend as it's built with standard web technologies.
-4. Access the application at `http://localhost:8000` in your web browser.
+### Clone the repository:
+
+```bash
+git clone https://github.com/gezielcarvalho/aero-zone-guard.git
+```
+
+### Set up the backend:
+
+1. **Navigate to the /backend directory**:
+   ```bash
+   cd backend
+   ```
+2. **Install dependencies**:
+   ```bash
+   dotnet restore
+   ```
+3. **Set up environment variables** and configure the database connection in `appsettings.json` or `secrets.json`.
+4. **Run migrations**:
+   ```bash
+   dotnet ef database update
+   ```
+5. **Start the backend server**:
+   ```bash
+   dotnet run
+   ```
+
+### Set up the frontend:
+
+1. **Navigate to the /frontend directory**:
+   ```bash
+   cd frontend
+   ```
+2. **Install dependencies** (if needed):
+   ```bash
+   npm install
+   ```
+3. **Build and start the frontend server**:
+   ```bash
+   npm start
+   ```
+4. **Access the application** at `http://localhost:8000` in your web browser.
 
 ## Usage
 
-- Users can submit electronic documentation for construction projects through the system.
-- The system performs pre-analysis based on geographic data and elevation information to assess potential threats and interference with aviation infrastructure.
-- Documentation flows through different sectors of the aeronautical authority for review and decision-making.
-- The system facilitates the emission of a final decision by the aeronautical authority, granting clearance or issuing a denial based on aviation safety concerns.
+1. **Submit electronic documentation** for construction projects through the system.
+2. **Pre-analysis** is performed based on geographic data and elevation information to assess potential threats and interference with aviation infrastructure.
+3. **Documentation flows** through different sectors of the aeronautical authority for review and decision-making.
+4. The system facilitates the **emission of a final decision** by the aeronautical authority, granting clearance or issuing a denial based on aviation safety concerns.
 
 ## Contributing
 
-Contributions to the Aero Zone Guard are welcome! Please fork the repository, make your changes, and submit a pull request with your improvements.
+Contributions to the **Aero Zone Guard** are welcome! Please fork the repository, make your changes, and submit a pull request with your improvements.
 
 ## License
 
