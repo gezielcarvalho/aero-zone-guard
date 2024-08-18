@@ -13,9 +13,8 @@ The **Aero Zone Guard** is a software solution designed to automate the analysis
 
 - **Backend:** C#/ASP.NET Core
 - **Frontend:** Angular with Tailwind CSS
-- **Database:** PostgreSQL, MongoDB
+- **Database:** Microsoft SQL Server, MongoDB
 - **Geospatial Analysis:** [Insert relevant tools/libraries if any]
-- **Document Management:** [Insert relevant tools/libraries if any]
 
 ## Installation and Setup
 
