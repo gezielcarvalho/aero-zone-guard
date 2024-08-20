@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using ZoneGuardLabs.Server.Controllers;
+using ZoneGuardLabs.Server.Data;
+
 namespace ZoneGuardLabs.Server
 {
     public class Program
@@ -13,7 +18,12 @@ namespace ZoneGuardLabs.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddScoped<AppDbContext>();
+            // InMemory database
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("ZoneGuardLabs");
+            });
             var app = builder.Build();
 
             app.UseDefaultFiles();

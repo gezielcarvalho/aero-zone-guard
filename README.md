@@ -13,9 +13,8 @@ The **Aero Zone Guard** is a software solution designed to automate the analysis
 
 - **Backend:** C#/ASP.NET Core
 - **Frontend:** Angular with Tailwind CSS
-- **Database:** PostgreSQL, MongoDB
-- **Geospatial Analysis:** [Insert relevant tools/libraries if any]
-- **Document Management:** [Insert relevant tools/libraries if any]
+- **Database:** SQL Server, MongoDB
+- **Geospatial Analysis:** DotSpatial
 
 ## Installation and Setup
 
@@ -71,6 +70,10 @@ git clone https://github.com/gezielcarvalho/aero-zone-guard.git
 ## Contributing
 
 Contributions to the **Aero Zone Guard** are welcome! Please fork the repository, make your changes, and submit a pull request with your improvements.
+
+## References
+
+https://github.com/DotSpatial/DotSpatial
 
 ## License
 
