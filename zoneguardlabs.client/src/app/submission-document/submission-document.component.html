@@ -1,0 +1,28 @@
+<h1>Submission Documents List</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Submission Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let document of submissionDocuments">
+            <td>{{ document.title }}</td>
+            <td>{{ document.status }}</td>
+            <td>{{ document.submissionDate }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="editDocument(document)">Delete</button>
+              <button class="btn btn-danger" (click)="deleteDocument(document)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

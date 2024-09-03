@@ -1,27 +1,22 @@
 # ZoneguardlabsClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Junior.
+  1. 100% Angular 18 project
+  2. Layout true to proposal
+  3. Routing system
+  4. Use CSS Grid
+  5. Sass (.sass ou .scss)
+  6. Mask inputs
+  7. Angular Material components
+  8. Making all fields mandatory using Rx Forms
+- Pleno
+  1. Interceptors
+  2. Extensive use of language
+  3. Project architecture for scalability
+  4. Error handler with Toaster
+  5. Use of customized typing (models)
+  6. EN/PT using i18n (Language + R$ becomes $)
+  7. Use external plugins intelligently for performance
+  8. Commented code (too much commenting is a sign of bad code)
+  9. Make <app-cep> + EventEmitter component to feed other fields
+  10. Pipes to resolve formatting.
