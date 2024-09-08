@@ -33,5 +33,5 @@ export class AppComponent implements OnInit {
     );
   }
 
-  title = 'aerozoneguard.client';
+  title = 'Aero Zone Guard';
 }
