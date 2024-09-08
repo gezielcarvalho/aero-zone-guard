@@ -1,6 +1,0 @@
-@ZoneGuardLabs.Server_HostAddress = http://localhost:5211
-
-GET {{ZoneGuardLabs.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
