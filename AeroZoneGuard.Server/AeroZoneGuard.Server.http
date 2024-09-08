@@ -1,0 +1,6 @@
+@AeroZoneGuard.Server_HostAddress = http://localhost:5038
+
+GET {{AeroZoneGuard.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
