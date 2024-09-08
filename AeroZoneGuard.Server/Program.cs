@@ -1,4 +1,7 @@
 
+using AeroZoneGuard.Server.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AeroZoneGuard.Server
 {
     public class Program
@@ -13,6 +16,12 @@ namespace AeroZoneGuard.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<AppDbContext>();
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("AeroZoneGuard");
+            });
 
             var app = builder.Build();
 
@@ -29,7 +38,6 @@ namespace AeroZoneGuard.Server
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
