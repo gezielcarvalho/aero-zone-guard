@@ -1,39 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SubmissionDocument } from './submission-document.model';
+import { SubmissionDocumentService } from './submission-document.service';
 
 @Component({
   selector: 'app-submission-document',
   templateUrl: './submission-document.component.html',
-  styleUrl: './submission-document.component.css'
+  styleUrls: ['./submission-document.component.css']
 })
-export class SubmissionDocumentComponent {
-  submissionDocuments: SubmissionDocument[] = [
-    {
-      id: 1,
-      userId: 1,
-      title: 'Document 1',
-      description: 'Description 1',
-      status: 'Submitted',
-      submissionDate: '2021-10-01',
-      lastUpdated: '2021-10-01'
-    },
-    {
-      id: 2,
-      userId: 1,
-      title: 'Document 2',
-      description: 'Description 2',
-      status: 'Submitted',
-      submissionDate: '2021-10-01',
-      lastUpdated: '2021-10-01'
-    }
-  ];
+export class SubmissionDocumentComponent implements OnInit {
 
-  editDocument(submissionDocument: SubmissionDocument) {
-    console.log('Edit document:', submissionDocument);
+  submissionDocuments: SubmissionDocument[] = [];
+
+  constructor(private service: SubmissionDocumentService) { }
+
+  ngOnInit(): void {
+    this.loadDocuments();
   }
 
-  deleteDocument(submissionDocument: SubmissionDocument) {
-    console.log('Delete document:', submissionDocument);
+  loadDocuments(): void {
+    this.service.getSubmissionDocuments().subscribe(data => {
+      this.submissionDocuments = data;
+    });
   }
 
+  createDocument(submissionDocument: SubmissionDocument): void {
+    this.service.createSubmissionDocument(submissionDocument).subscribe(newDocument => {
+      this.submissionDocuments.push(newDocument);
+    });
+  }
+
+  editDocument(submissionDocument: SubmissionDocument): void {
+    this.service.updateSubmissionDocument(submissionDocument.id, submissionDocument).subscribe(updatedDocument => {
+      const index = this.submissionDocuments.findIndex(doc => doc.id === updatedDocument.id);
+      if (index !== -1) {
+        this.submissionDocuments[index] = updatedDocument;
+      }
+    });
+  }
+
+  deleteDocument(submissionDocument: SubmissionDocument): void {
+    this.service.deleteSubmissionDocument(submissionDocument.id).subscribe(() => {
+      this.submissionDocuments = this.submissionDocuments.filter(doc => doc.id !== submissionDocument.id);
+    });
+  }
 }
