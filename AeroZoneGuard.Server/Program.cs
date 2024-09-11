@@ -23,7 +23,20 @@ namespace AeroZoneGuard.Server
                 options.UseInMemoryDatabase("AeroZoneGuard");
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Default", builder =>
+                {
+                    builder
+                    .WithOrigins("https://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
+
+            app.UseCors("Default");
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
