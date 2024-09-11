@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,10 +12,10 @@ import { SubmissionDocumentComponent } from './submission-document/submission-do
     SubmissionDocumentComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
