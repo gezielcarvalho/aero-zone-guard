@@ -1,6 +1,6 @@
 ﻿namespace AeroZoneGuard.Server.Models
 {
-    public class SubmissionDocument
+    public partial class SubmissionDocument
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -9,6 +9,5 @@
         public string Status { get; set; }
         public DateTime SubmissionDate { get; set; }
         public DateTime LastUpdated { get; set; }
-
     }
 }

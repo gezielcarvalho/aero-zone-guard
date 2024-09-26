@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AeroZoneGuard.Server.Data;
+using AeroZoneGuard.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using AeroZoneGuard.Server.Data;
-using AeroZoneGuard.Server.Models;
 
 namespace AeroZoneGuard.Server.Controllers
 {
