@@ -1,5 +1,7 @@
 
 using AeroZoneGuard.Server.Data;
+using AeroZoneGuard.Server.Interfaces;
+using AeroZoneGuard.Server.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace AeroZoneGuard.Server
@@ -10,10 +12,10 @@ namespace AeroZoneGuard.Server
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
+            // Add classes to the DI container
+            builder.Services.AddScoped<ISubmissionDocumentRepository, SubmissionDocumentRepository>();
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

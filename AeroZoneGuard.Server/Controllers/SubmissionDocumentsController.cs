@@ -1,4 +1,5 @@
 ﻿using AeroZoneGuard.Server.Data;
+using AeroZoneGuard.Server.Interfaces;
 using AeroZoneGuard.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,12 @@ namespace AeroZoneGuard.Server.Controllers
     public class SubmissionDocumentsController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ISubmissionDocumentRepository _repository;
 
-        public SubmissionDocumentsController(AppDbContext context)
+        public SubmissionDocumentsController(AppDbContext context, ISubmissionDocumentRepository repository)
         {
             _context = context;
+            _repository = repository;
         }
 
         // GET: api/SubmissionDocuments
@@ -69,13 +72,10 @@ namespace AeroZoneGuard.Server.Controllers
         }
 
         // POST: api/SubmissionDocuments
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<SubmissionDocument>> PostSubmissionDocument(SubmissionDocument submissionDocument)
         {
-            _context.SubmissionDocuments.Add(submissionDocument);
-            await _context.SaveChangesAsync();
-
+            await _repository.Create(submissionDocument);
             return CreatedAtAction("GetSubmissionDocument", new { id = submissionDocument.Id }, submissionDocument);
         }
 
