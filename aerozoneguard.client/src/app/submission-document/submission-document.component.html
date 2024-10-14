@@ -1,31 +1,4 @@
-<h1>Submission Documents List</h1>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Submission Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (document of submissionDocuments; track document){
-          <tr>
-            <td>{{ document.title }}</td>
-            <td>{{ document.status }}</td>
-            <td>{{ document.submissionDate }}</td>
-            <td>
-              <button class="btn btn-primary" (click)="editDocument(document)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteDocument(document)">Delete</button>
-            </td>
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<h2>Create Document</h2>
+<form (ngSubmit)="onSubmit()">
+  <button type="submit">Create</button>
+</form>

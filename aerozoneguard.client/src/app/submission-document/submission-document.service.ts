@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SubmissionDocument } from './submission-document.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubmissionDocumentService {
 
-  private apiUrl = 'https://localhost:7122/api/SubmissionDocuments';
+  private apiUrl = `${environment.apiUrl}/SubmissionDocuments`;
 
   constructor(private http: HttpClient) { }
 
