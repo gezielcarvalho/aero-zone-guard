@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionDocument } from './submission-document.model';
 import { SubmissionDocumentService } from './submission-document.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-submission-document',
@@ -19,7 +20,12 @@ export class SubmissionDocumentComponent implements OnInit {
       lastUpdated: ''
   };
 
-  constructor(private service: SubmissionDocumentService) { }
+  errorMessage = '';
+
+  constructor(
+    private service: SubmissionDocumentService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     //
@@ -36,8 +42,14 @@ export class SubmissionDocumentComponent implements OnInit {
 
     this.service.createSubmissionDocument(this.submissionDocument)
       .subscribe({
-        next: (value) => { console.log(value); },
-        error: (error) => { console.error(error); },
+        next: (value) => {
+          console.log(value);
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error(error);
+          this.errorMessage = error.message;
+        },
         complete: () => { console.log('Complete'); }
       });
   }

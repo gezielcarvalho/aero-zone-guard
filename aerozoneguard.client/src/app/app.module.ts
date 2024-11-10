@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubmissionDocumentComponent } from './submission-document/submission-document.component';
 import { SubmissionDocumentListComponent } from './submission-document-list/submission-document-list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SubmissionDocumentListComponent } from './submission-document-list/subm
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
