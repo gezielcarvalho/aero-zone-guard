@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionDocument } from './submission-document.model';
 import { SubmissionDocumentService } from './submission-document.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-submission-document',
@@ -24,26 +24,63 @@ export class SubmissionDocumentComponent implements OnInit {
 
   constructor(
     private service: SubmissionDocumentService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    //
+    this.route.params.subscribe(() => {
+      let id = this.route.snapshot.params['id'];
+      if (id) {
+        this.service.getSubmissionDocumentById(id)
+          .subscribe({
+            next: (value) => {
+              this.submissionDocument = value;
+            },
+            error: (error) => {
+              console.error(error);
+              this.errorMessage = error.message;
+            },
+            complete: () => {
+              console.log('Complete');
+            }
+          });
+      }
+    });
+                  
+    
   }
 
   onSubmit(): void {
-    // Set the submissionDate and lastUpdated to the current date and time
     const currentDate = new Date().toISOString(); // ISO format for consistency
-    this.submissionDocument.submissionDate = currentDate;
     this.submissionDocument.lastUpdated = currentDate;
+    if (this.submissionDocument.id === 0) {
+      this.submissionDocument.submissionDate = currentDate;
+      this.createDocument();
+    } else {
+      this.updateDocument();
+    }
+    
+  }
+
+  updateDocument() {
+    this.service.updateSubmissionDocument(this.submissionDocument.id, this.submissionDocument).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error(error);
+        this.errorMessage = error.message;
+      },
+      complete: () => { console.log('Complete'); }
+    })
+    }
+
+  createDocument() {
     this.submissionDocument.userId = 1; // temporary place holder
-
-    console.log({ doc: this.submissionDocument });
-
     this.service.createSubmissionDocument(this.submissionDocument)
       .subscribe({
-        next: (value) => {
-          console.log(value);
+        next: () => {
           this.router.navigate(['/']);
         },
         error: (error) => {
@@ -52,7 +89,8 @@ export class SubmissionDocumentComponent implements OnInit {
         },
         complete: () => { console.log('Complete'); }
       });
-  }
+}
+
 
 
   

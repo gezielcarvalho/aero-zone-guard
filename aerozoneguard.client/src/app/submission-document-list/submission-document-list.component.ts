@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SubmissionDocument } from '../submission-document/submission-document.model';
 import { SubmissionDocumentService } from '../submission-document/submission-document.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-submission-document-list',
@@ -11,7 +12,10 @@ export class SubmissionDocumentListComponent {
 
   documents: SubmissionDocument[] = []
 
-  constructor(private service: SubmissionDocumentService) { }
+  constructor(
+    private service: SubmissionDocumentService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.loadDocuments();
@@ -31,6 +35,10 @@ export class SubmissionDocumentListComponent {
   }
 
   editDocument(submissionDocument: SubmissionDocument): void {
+    this.router.navigate(['/edit', submissionDocument.id]);
+  }
+
+  updateDocument(submissionDocument: SubmissionDocument): void {
     this.service.updateSubmissionDocument(submissionDocument.id, submissionDocument).subscribe(updatedDocument => {
       const index = this.documents.findIndex(doc => doc.id === updatedDocument.id);
       if (index !== -1) {
@@ -40,8 +48,13 @@ export class SubmissionDocumentListComponent {
   }
 
   deleteDocument(submissionDocument: SubmissionDocument): void {
-    this.service.deleteSubmissionDocument(submissionDocument.id).subscribe(() => {
-      this.documents = this.documents.filter(doc => doc.id !== submissionDocument.id);
+    this.service.deleteSubmissionDocument(submissionDocument.id).subscribe({
+      next: () => {
+        this.documents = this.documents.filter(doc => doc.id !== submissionDocument.id);
+      },
+      error: (error) => {
+        console.error(error);
+      }
     });
   }
 

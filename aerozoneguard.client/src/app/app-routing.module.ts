@@ -5,7 +5,8 @@ import { SubmissionDocumentListComponent } from './submission-document-list/subm
 
 const routes: Routes = [
   { path: '', component: SubmissionDocumentListComponent },
-  { path: 'create', component: SubmissionDocumentComponent }
+  { path: 'create', component: SubmissionDocumentComponent },
+  { path: 'edit/:id', component: SubmissionDocumentComponent }
 ]; 
 
 @NgModule({
