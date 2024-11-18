@@ -8,8 +8,10 @@
 
 <form (ngSubmit)="onSubmit()" class="container p-4 shadow rounded bg-light">
   <div class="mb-3">
-    <label for="title" class="form-label">Title</label>
-    <input type="text"
+    <label for="title" class="form-label">Title*</label>
+    <input
+           #title="ngModel"
+           type="text"
            id="title"
            name="title"
            class="form-control"
@@ -17,10 +19,14 @@
            required
            placeholder="Enter the document title" />
   </div>
-
+  @if (title.invalid && (title.dirty || title.touched)){
+    <div class="text-danger">Title is required</div>
+  }
   <div class="mb-3">
-    <label for="description" class="form-label">Description</label>
-    <textarea id="description"
+    <label for="description" class="form-label">Description*</label>
+    <textarea
+              #description="ngModel"
+              id="description"
               name="description"
               class="form-control"
               rows="3"
@@ -28,7 +34,9 @@
               required
               placeholder="Enter a brief description"></textarea>
   </div>
-
+  @if (description.invalid && (description.dirty || description.touched)){
+    <div class="text-danger">Description is required</div>
+  }
   <div class="mb-3">
     <label for="status" class="form-label">Status</label>
     <select id="status"
