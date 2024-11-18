@@ -1,13 +1,53 @@
-<h2>{{submissionDocument.id > 0 ? 'Edit' : 'Create'}} Document</h2>
-<div *ngIf="errorMessage !=''">
+<h2 class="text-center my-4">
+  {{submissionDocument.id > 0 ? 'Edit' : 'Create'}} Document
+</h2>
+
+<div *ngIf="errorMessage != ''" class="alert alert-danger">
   {{errorMessage}}
 </div>
-<form (ngSubmit)="onSubmit()">
 
-  <input type="text" name="title" [(ngModel)]="submissionDocument.title" />
-  <input type="text" name="description" [(ngModel)]="submissionDocument.description" />
-  <input type="text" name="status" [(ngModel)]="submissionDocument.status" />
+<form (ngSubmit)="onSubmit()" class="container p-4 shadow rounded bg-light">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text"
+           id="title"
+           name="title"
+           class="form-control"
+           [(ngModel)]="submissionDocument.title"
+           required
+           placeholder="Enter the document title" />
+  </div>
 
-  <button type="submit">{{submissionDocument.id > 0 ? 'Update' : 'Submit'}}</button>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea id="description"
+              name="description"
+              class="form-control"
+              rows="3"
+              [(ngModel)]="submissionDocument.description"
+              required
+              placeholder="Enter a brief description"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <select id="status"
+            name="status"
+            class="form-select"
+            [(ngModel)]="submissionDocument.status"
+            required>
+      <option value="">Select Status</option>
+      <option value="Draft">Draft</option>
+      <option value="Submitted">Submitted</option>
+      <option value="Approved">Approved</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+  </div>
+
+  <div class="text-center">
+    <button type="submit"
+            class="btn btn-primary px-4">
+      {{submissionDocument.id > 0 ? 'Update' : 'Submit'}}
+    </button>
+  </div>
 </form>
-

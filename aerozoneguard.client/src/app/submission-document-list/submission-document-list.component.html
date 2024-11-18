@@ -1,31 +1,50 @@
-<h1>Submission Documents List</h1>
+<h1 class="text-center my-4">Submission Documents List</h1>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Submission Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (document of documents; track document){
-          <tr>
-            <td>{{ document.title }}</td>
-            <td>{{ document.status }}</td>
-            <td>{{ document.submissionDate }}</td>
-            <td>
-              <button class="btn btn-primary" (click)="editDocument(document)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteDocument(document)">Delete</button>
-            </td>
-          </tr>
-          }
-        </tbody>
-      </table>
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">Documents</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Submission Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (document of documents; track document) {
+              <tr>
+                <td>{{ document.title }}</td>
+                <td>
+                  <span class="badge bg-{{ document.status === 'Approved' ? 'success' : 'warning' }}">
+                    {{ document.status }}
+                  </span>
+                </td>
+                <td>{{ document.submissionDate }}</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-outline-primary"
+                            (click)="editDocument(document)">
+                      <i class="bi bi-pencil-square"></i> Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger"
+                            (click)="deleteDocument(document)">
+                      <i class="bi bi-trash"></i> Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
