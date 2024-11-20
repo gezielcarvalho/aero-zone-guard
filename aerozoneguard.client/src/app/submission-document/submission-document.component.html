@@ -6,11 +6,10 @@
   {{errorMessage}}
 </div>
 
-<form (ngSubmit)="onSubmit()" class="container p-4 shadow rounded bg-light">
+<form (ngSubmit)="onSubmit()" class="container p-4 shadow rounded bg-light" #documentForm="ngForm">
   <div class="mb-3">
     <label for="title" class="form-label">Title*</label>
-    <input
-           #title="ngModel"
+    <input #title="ngModel"
            type="text"
            id="title"
            name="title"
@@ -20,12 +19,11 @@
            placeholder="Enter the document title" />
   </div>
   @if (title.invalid && (title.dirty || title.touched)){
-    <div class="text-danger">Title is required</div>
+  <div class="text-danger">Title is required</div>
   }
   <div class="mb-3">
     <label for="description" class="form-label">Description*</label>
-    <textarea
-              #description="ngModel"
+    <textarea #description="ngModel"
               id="description"
               name="description"
               class="form-control"
@@ -35,11 +33,12 @@
               placeholder="Enter a brief description"></textarea>
   </div>
   @if (description.invalid && (description.dirty || description.touched)){
-    <div class="text-danger">Description is required</div>
+  <div class="text-danger">Description is required</div>
   }
   <div class="mb-3">
     <label for="status" class="form-label">Status</label>
-    <select id="status"
+    <select #status="ngModel"
+            id="status"
             name="status"
             class="form-select"
             [(ngModel)]="submissionDocument.status"
@@ -51,9 +50,13 @@
       <option value="Rejected">Rejected</option>
     </select>
   </div>
+  @if (status.invalid && (status.dirty || status.touched)){
+  <div class="text-danger">Status is required</div>
+  }
 
   <div class="text-center">
     <button type="submit"
+            [disabled]="documentForm.invalid"
             class="btn btn-primary px-4">
       {{submissionDocument.id > 0 ? 'Update' : 'Submit'}}
     </button>
