@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { SubmissionDocumentComponent } from './submission-document/submission-document.component';
 import { SubmissionDocumentListComponent } from './submission-document-list/submission-document-list.component';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     FormsModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

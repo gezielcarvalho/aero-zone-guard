@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubmissionDocument } from './submission-document.model';
 import { SubmissionDocumentService } from './submission-document.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-submission-document',
@@ -9,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./submission-document.component.css']
 })
 export class SubmissionDocumentComponent implements OnInit {
+
+  faFloppyDisk = faFloppyDisk;
 
   submissionDocument: SubmissionDocument = {
       id: 0,
