@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeroZoneGuard.Server", "AeroZoneGuard.Server\AeroZoneGuard.Server.csproj", "{2DD49F97-5A54-41F3-9B0D-4B0A9A7378DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeroZoneGuard.Server", "backend\AeroZoneGuard.Server.csproj", "{2DD49F97-5A54-41F3-9B0D-4B0A9A7378DC}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "aerozoneguard.client", "aerozoneguard.client\aerozoneguard.client.esproj", "{867C21B8-83C3-4DCA-B599-B2282FA424EB}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "aerozoneguard.client", "frontend\aerozoneguard.client.esproj", "{867C21B8-83C3-4DCA-B599-B2282FA424EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

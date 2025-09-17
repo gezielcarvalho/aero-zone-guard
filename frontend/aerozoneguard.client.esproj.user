@@ -7,7 +7,7 @@
   "type": "chrome",
   "request": "launch",
   "url": "https://localhost:4200",
-  "webRoot": "C:\\Users\\gezie\\projects\\personal-github\\aero-zone-guard\\aerozoneguard.client"
+  "webRoot": "C:\\Users\\gezie\\projects\\personal-github\\aero-zone-guard\\frontend"
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>

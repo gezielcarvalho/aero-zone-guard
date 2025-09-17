@@ -79,7 +79,7 @@ https://portal.azure.com/?quickstart=true#view/Microsoft_Azure_Resources/Quickst
 
            - name: Build Angular app
              run: |
-               cd ClientApp
+               cd frontend
                npm install
                ng build --prod
 
