@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
 import { SubmissionDocumentListComponent } from './submission-document-list.component';
 
 describe('SubmissionDocumentListComponent', () => {
@@ -8,9 +9,9 @@ describe('SubmissionDocumentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SubmissionDocumentListComponent]
-    })
-    .compileComponents();
+      declarations: [SubmissionDocumentListComponent],
+      imports: [HttpClientTestingModule, RouterModule.forRoot([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SubmissionDocumentListComponent);
     component = fixture.componentInstance;
