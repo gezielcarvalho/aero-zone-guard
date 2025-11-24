@@ -30,7 +30,12 @@ namespace AeroZoneGuard.Server
                 options.AddPolicy("Default", builder =>
                 {
                     builder
-                    .WithOrigins("https://localhost:4200")
+                    .WithOrigins(
+                        "https://localhost:4200", 
+                        "http://localhost:4200", 
+                        "http://localhost", 
+                        "http://localhost:80"
+                    )
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
@@ -50,7 +55,11 @@ namespace AeroZoneGuard.Server
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            // Only use HTTPS redirect in production or when not running in container
+            if (!app.Environment.IsDevelopment() && Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseAuthorization();
 

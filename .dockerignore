@@ -1,0 +1,13 @@
+.git
+.gitignore
+.vs
+.vscode
+*.md
+docs
+node_modules
+**/bin
+**/obj
+**/dist
+**/.angular
+**/npm-debug.log
+LICENSE
