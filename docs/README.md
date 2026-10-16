@@ -1,5 +1,7 @@
 # Aero Zone Guard - Airspace Construction Assessment System
 
+> **Documentation scope note:** the numbered documents in this folder preserve historical product-analysis material, including earlier technology assumptions. They are not an exact description of the current .NET 8 and Angular prototype. See [current-state/README.md](current-state/README.md) for the implementation as it exists today.
+
 The Aero Zone Guard is a software solution designed to automate the analysis and assessment of construction projects in relation to their potential impact on aviation safety and airspace management. Whether it's a new building, antenna, or airport, the system evaluates potential threats and interference with existing aviation infrastructure before authorizing construction. Developed to streamline the reception, analysis, and decision-making process, this software facilitates the flow of electronic documentation through various sectors of the aeronautical authority, ultimately leading to the issuance or denial of clearance for the proposed project.
 
 ## History
@@ -58,6 +60,7 @@ This project is licensed under the MIT License.
 
 ## Documentation Index
 
+- [Current implementation documentation](current-state/README.md)
 - [01 - System Vision Document](01-System-Vision-Document.md)
 - [02 - Requirements and User Stories](02-Requirements-and-User-Stories.md)
 - [03 - Subsystems and Packages](03-Subsystems-and-Packages.md)
